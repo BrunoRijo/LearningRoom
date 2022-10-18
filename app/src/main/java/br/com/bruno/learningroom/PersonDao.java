@@ -1,5 +1,6 @@
 package br.com.bruno.learningroom;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -13,7 +14,9 @@ public interface PersonDao {
     void insertAll(Person... persons);
 
     @Query("SELECT * FROM person")
-    List<Person> getAllPersons();
+    LiveData<List<Person>> getAllPersons();
+
+
 
     /*Esse trecho manipula as operações no banco de dados que serão feitas com os dados
     contidos nas entidades declaradas nas classes*/
